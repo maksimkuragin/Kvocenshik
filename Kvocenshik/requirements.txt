@@ -1,0 +1,10 @@
+gunicorn
+flask
+folium
+joblib
+sklearn
+haversine
+geopy
+xgboost
+numpy
+

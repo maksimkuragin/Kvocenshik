@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href="static/logo.png" rel="icon" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Оценщик квартир</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <form action="/" method="POST">
+      <div>
+        <div class="p-3 main_picture">
+          <h1
+            style="
+              font-family: 'Caveat', cursive;
+              color: white;
+              font-size: 70px;
+            "
+          >
+            Квоценщик
+          </h1>
+
+          <div class="d-flex justify-content-center title">
+            <h1>Оцените свою квартиру прямо сейчас</h1>
+          </div>
+
+          <div class="main">
+            <div class="row mt-4 mb-4 main_container">
+              <div class="col-xs-12 col-lg-3 col-sm-3 col-md-3">
+                <label class="subtitle">Адрес квартиры в Москве: </label>
+                <input
+                  class="form-control"
+                  type="text"
+                  placeholder="Москва ул. Ленивка 3 с3"
+                  name="address"
+                  required
+                />
+              </div>
+              <div class="col-xs-12 col-lg-3 col-sm-3 col-md-3">
+                <label class="subtitle">Метро: </label>
+                <select class="form-select" name="metro" id="metro"></select>
+              </div>
+              <div class="col-xs-12 col-lg-3 col-sm-3 col-md-3">
+                <label class="subtitle">Кол-во комнат: </label>
+                <select class="form-select" name="rooms" id="rooms">
+                  <option value="1-комнатная">1-комнатная</option>
+                  <option value="2-комнатная" selected>2-комнатная</option>
+                  <option value="3-комнатная">3-комнатная</option>
+                  <option value="4-комнатная">4-комнатная</option>
+                  <option value="5-комнатная">5-комнатная</option>
+                  <option value="6-комнатная">6-комнатная</option>
+                  <option value="Студия">Студия</option>
+                  <option value="Свободная планировка">
+                    Свободная планировка
+                  </option>
+                </select>
+              </div>
+              <div class="col-xs-12 col-lg-3 col-sm-3 col-md-3">
+                <label for="square" class="subtitle">Площадь квартиры</label>
+                <input
+                  class="form-control"
+                  type="number"
+                  min="10"
+                  max="1000"
+                  value="45"
+                  placeholder="Введи площадь квартиры, например: 45"
+                  name="square"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+          <div class="accordion mt-4 mb-4 add_container" id="accordionExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                <button
+                  class="accordion-button acc-btn"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseOne"
+                  aria-expanded="false"
+                  aria-controls="collapseOne"
+                >
+                  Параметры для более точного расчёта
+                </button>
+              </h2>
+              <div
+                id="collapseOne"
+                class="accordion-collapse collapse wrapper-container"
+                aria-labelledby="headingOne"
+                data-bs-parent="#accordionExample"
+              >
+                <div class="row">
+                  <div
+                    class="col-xs-12 col-lg-6 col-sm-6 col-md-6 accordion-body"
+                  >
+                    <label class="subtitle">Тип ремонта: </label>
+                    <select
+                      class="form-select"
+                      name="type of repair"
+                      id="type of repair"
+                    >
+                      <option value="Без ремонта">Без ремонта</option>
+                      <option value="Косметический">Косметический</option>
+                      <option value="Евроремонт" selected>Евроремонт</option>
+                      <option value="Дизайнерский">Дизайнерский</option>
+                    </select>
+                  </div>
+
+                  <div
+                    class="col-xs-12 col-lg-6 col-sm-6 col-md-6 accordion-body"
+                  >
+                    <label for="ceiling height" class="subtitle"
+                      >Высота потолков</label
+                    >
+                    <input
+                      class="form-control"
+                      type="tel"
+                      min="2"
+                      max="40"
+                      value="2.9"
+                      placeholder="Например: 2.9"
+                      name="ceiling height"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="row">
+                  <div
+                    class="col-xs-12 col-lg-6 col-sm-6 col-md-6 accordion-body"
+                  >
+                    <label class="subtitle">Тип дома: </label>
+                    <select
+                      class="form-select"
+                      name="house type"
+                      id="house type"
+                    >
+                      <option value="Неизвестно">Неизвестно</option>
+                      <option value="Монолитный">Монолитный</option>
+                      <option value="Панельный" selected>Панельный</option>
+                      <option value="Кирпичный">Кирпичный</option>
+                      <option value="Монолитно-кирпичный">
+                        Монолитно-кирпичный
+                      </option>
+                      <option value="Блочный">Блочный</option>
+                      <option value="Сталинский">Сталинский</option>
+                      <option value="Старый фонд">Старый фонд</option>
+                      <option value="Деревянный">Деревянный</option>
+                    </select>
+                  </div>
+                  <div
+                    class="col-xs-12 col-lg-6 col-sm-6 col-md-6 accordion-body"
+                  >
+                    <label class="subtitle">Тип парковки: </label>
+                    <select class="form-select" name="parking" id="parking">
+                      <option value="Бесплатная во дворе" selected>
+                        Бесплатная во дворе
+                      </option>
+                      <option value="Платная во дворе">Платная во дворе</option>
+                      <option value="Подземная">Подземная</option>
+                      <option value="Многоуровневая">Многоуровневая</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="row">
+                  <div
+                    class="col-xs-12 col-lg-6 col-sm-6 col-md-6 accordion-body"
+                  >
+                    <label for="apartment floor" class="subtitle"
+                      >Этаж квартиры</label
+                    >
+                    <input
+                      class="form-control"
+                      type="number"
+                      min="1"
+                      value="5"
+                      max="70"
+                      placeholder="Введите этаж квартиры"
+                      name="apartment floor"
+                      required
+                    />
+                  </div>
+                  <div
+                    class="col-xs-12 col-lg-6 col-sm-6 col-md-6 accordion-body"
+                  >
+                    <label for="number of storeys of the house" class="subtitle"
+                      >Кол-во этажей в доме</label
+                    >
+                    <input
+                      class="form-control"
+                      type="number"
+                      min="1"
+                      max="70"
+                      value="12"
+                      placeholder="Введите этажность дома"
+                      name="number of storeys of the house"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="row">
+                  <div
+                    class="col-xs-12 col-lg-6 col-sm-6 col-md-6 accordion-body"
+                  >
+                    <label class="subtitle">Количество балконов: </label>
+                    <select
+                      class="form-select"
+                      name="number of balconies"
+                      id="number of balconies"
+                    >
+                      <option value="0">0</option>
+                      <option value="1" selected>1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                    </select>
+                  </div>
+                  <div
+                    class="col-xs-12 col-lg-6 col-sm-6 col-md-6 accordion-body"
+                  >
+                    <label class="subtitle">Количество лоджий: </label>
+                    <select
+                      class="form-select"
+                      name="number of loggias"
+                      id="number of loggias"
+                    >
+                      <option value="0" selected>0</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="row">
+                  <div
+                    class="col-xs-12 col-lg-6 col-sm-6 col-md-6 accordion-body"
+                  >
+                    <label class="subtitle">Кол-во раздельных санузлов: </label>
+                    <select
+                      class="form-select"
+                      name="separate bathroom"
+                      id="separate bathroom"
+                    >
+                      <option value="0">0</option>
+                      <option value="1" selected>1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                    </select>
+                  </div>
+                  <div
+                    class="col-xs-12 col-lg-6 col-sm-6 col-md-6 accordion-body"
+                  >
+                    <label class="subtitle"
+                      >Кол-во совмещенных санузлов:
+                    </label>
+                    <select
+                      class="form-select"
+                      name="combined bathroom"
+                      id="combined bathroom"
+                    >
+                      <option value="0" selected>0</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="row mb-4">
+                  <div
+                    class="col-xs-12 col-lg-6 col-sm-6 col-md-6 accordion-body"
+                  >
+                    <label class="subtitle">Кол-во пассажирских лифтов: </label>
+                    <select
+                      class="form-select"
+                      name="passenger elevator"
+                      id="passenger elevator"
+                    >
+                      <option value="0">0</option>
+                      <option value="1" selected>1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                    </select>
+                  </div>
+                  <div
+                    class="col-xs-12 col-lg-6 col-sm-6 col-md-6 accordion-body"
+                  >
+                    <label class="subtitle">Кол-во грузовых лифтов: </label>
+                    <select
+                      class="form-select"
+                      name="service lift"
+                      id="service lift"
+                    >
+                      <option value="0" selected>0</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex justify-content-center mb-4">
+            <button
+              type="submit"
+              id="openAddInfo"
+              class="btn btn-danger btn-lg"
+              style="font-family: 'Caveat', cursive"
+            >
+              Рассчитать
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <script src="/static/script.js"></script>
+  </body>
+</html>
